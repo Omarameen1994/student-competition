@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Tajawal", "Segoe UI", "Noto Naskh Arabic", system-ui, sans-serif;
+
+  --color-ink: #0b1020;
+  --color-ink-2: #131a30;
+  --color-ink-3: #1c2542;
+  --color-line: #2a3557;
+  --color-muted: #93a0c4;
+  --color-gold: #f5b400;
+  --color-win: #22c55e;
+  --color-lose: #ef4444;
+  --color-brand: #6366f1;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1100px 600px at 50% -10%, #1e2a52 0%, transparent 60%),
+    var(--color-ink);
+  color: #eef2ff;
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* منع التحديد العرضي أثناء الضغط السريع على الـBuzzer */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.card {
+  background: color-mix(in oklab, var(--color-ink-2) 92%, white 8%);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+}
+
+.btn {
+  @apply rounded-xl px-4 py-2.5 font-bold transition active:scale-95 disabled:opacity-40 disabled:active:scale-100;
+}
+
+.input {
+  @apply w-full rounded-xl border border-[var(--color-line)] bg-[var(--color-ink)] px-4 py-2.5
+         text-white outline-none placeholder:text-[var(--color-muted)]
+         focus:border-[var(--color-brand)];
+}
+
+.label {
+  @apply mb-1.5 block text-sm font-semibold text-[var(--color-muted)];
+}
+
+/* ——— مؤثرات ——— */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgb(239 68 68 / 0.55); }
+  70%  { box-shadow: 0 0 0 28px rgb(239 68 68 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(239 68 68 / 0); }
+}
+.buzzer-live { animation: pulse-ring 1.4s infinite; }
+
+@keyframes pop-in {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.pop-in { animation: pop-in 0.25s ease-out; }
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+.shake { animation: shake 0.5s; }
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 4px var(--color-gold)); }
+  50%      { filter: drop-shadow(0 0 18px var(--color-gold)); }
+}
+.glow { animation: glow 1.6s infinite; }
+
+@keyframes rise {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.rise { animation: rise 0.3s ease-out; }
