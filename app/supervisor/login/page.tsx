@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/database/client";
+import { BackHome } from "@/components/BackHome";
 
 export default function SupervisorLogin() {
   const router = useRouter();
@@ -28,7 +29,9 @@ export default function SupervisorLogin() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-6 p-6">
+    <main className="relative mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-6 p-6">
+      <BackHome />
+
       <div className="text-center">
         <div className="text-5xl">🛡️</div>
         <h1 className="mt-3 text-2xl font-black">دخول المشرفين</h1>

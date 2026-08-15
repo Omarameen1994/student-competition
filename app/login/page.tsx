@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { deviceId } from "@/lib/device";
+import { BackHome } from "@/components/BackHome";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,7 +32,9 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-8 p-6">
+    <main className="relative mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-8 p-6">
+      <BackHome />
+
       <div className="text-center">
         <div className="text-6xl glow">🏆</div>
         <h1 className="mt-3 text-2xl font-black">أدخل كود الدخول</h1>
